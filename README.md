@@ -1,0 +1,2 @@
+# barbershopapp
+Rails Barbershop App
