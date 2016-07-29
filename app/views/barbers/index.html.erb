@@ -1,0 +1,27 @@
+<h1>Barber Search</h1>
+  <% if @latlong %>
+    <% @results.each do|result| %>
+      <h2> <%= result["name"] %> </h2>
+      <p> <%= result["vicinity"] %> </p>
+    <% if @favorite.new_record? %>
+
+      <%= form_for @favorite do |f| %>
+        <%= f.hidden_field :name %>
+        <%= f.submit 'Favorite :)' %>
+      <% end %>
+    <% end %>
+
+
+  <% end %>
+
+  <% else %>
+
+    <form action="/barbers" method="get">
+      <label>Zipcode: <input name="search"></label>
+
+      <button>Submit</button>
+    </form>
+
+  <% end %>
+
+<% else %>
